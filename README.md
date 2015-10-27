@@ -1,11 +1,16 @@
-# Relay Starter Kit
+# Graphql-Epoxy & Relay Starter Kit
 
-This kit includes an app server, a GraphQL server, and a transpiler that you can use to get started building an app with Relay. For a walkthrough, see the [Relay tutorial](https://facebook.github.io/relay/docs/tutorial.html).
+This is a fork of the Relay Starter Kit, repurposed to let you get started using 
+[`graphql-epoxy`](https://github.com/graphql-python/graphql-epoxy) with `relay`.
+
+This kit includes an app server, a python GraphQL server, and a transpiler that you can use to get started building an app with Relay. 
+For a walkthrough, see the [Relay tutorial](https://facebook.github.io/relay/docs/tutorial.html).
 
 ## Installation
 
 ```
 npm install
+npm run install-python-deps
 ```
 
 ## Running
@@ -21,13 +26,7 @@ npm start
 Any changes you make to files in the `js/` directory will cause the server to
 automatically rebuild the app and refresh your browser.
 
-If at any time you make changes to `data/schema.js`, stop the server,
-regenerate `data/schema.json`, and restart the server:
-
-```
-npm run update-schema
-npm start
-```
+If at any time you make changes to `server/schema.py`, restart the server.
 
 ## License
 
