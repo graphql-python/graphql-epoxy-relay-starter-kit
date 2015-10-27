@@ -1,14 +1,15 @@
+from collections import OrderedDict
 import os
 import json
-from graphql.core import graphql
+from graphql.core.execution import Executor, SynchronousExecutionMiddleware
 from graphql.core.utils.introspection_query import introspection_query
 from graphql.core.utils.schema_printer import print_schema
 
 
-def update_schema(Schema):
+def update_schema(schema):
     print('[~] Generating Schema Documents... ')
-
-    result = graphql(Schema, introspection_query)
+    executor = Executor(execution_middlewares=[SynchronousExecutionMiddleware()], map_type=OrderedDict)
+    result = executor.execute(schema, introspection_query)
     if result.errors:
         print('[X] Error inspecting schema: ', result.errors)
 
@@ -19,7 +20,7 @@ def update_schema(Schema):
         print('[~] Wrote schema.json')
 
     with open(os.path.join(os.path.dirname(__file__), '..', 'schema.graphql'), 'w') as fp:
-        fp.write(print_schema(Schema))
+        fp.write(print_schema(schema))
 
     print('[~] Wrote schema.graphql')
 
@@ -28,6 +29,8 @@ def update_schema(Schema):
 
 if __name__ == '__main__':
     import sys
+
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
     from schema import Schema
+
     update_schema(Schema)

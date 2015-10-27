@@ -10,6 +10,7 @@ type PageInfo {
 }
 
 type Query {
+  node(id: ID!): Node
   viewer: User
 }
 
