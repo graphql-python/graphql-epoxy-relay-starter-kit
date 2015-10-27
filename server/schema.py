@@ -19,7 +19,7 @@ class Widget(R.Implements[Relay.Node]):
 
 
 class Query(R.ObjectType):
-    node = Relay.Node
+    node = Relay.NodeField
     viewer = R.User
 
     def resolve_viewer(self, obj, args, info):
