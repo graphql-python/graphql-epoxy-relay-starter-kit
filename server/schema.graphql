@@ -1,3 +1,42 @@
+input AddWidgetInput {
+  name: String
+  clientMutationId: String
+}
+
+type AddWidgetPayload {
+  newWidget: WidgetEdge
+  viewer: User
+  clientMutationId: String
+}
+
+input DeleteWidgetInput {
+  id: ID
+  clientMutationId: String
+}
+
+type DeleteWidgetPayload {
+  deletedWidgetId: ID
+  viewer: User
+  clientMutationId: String
+}
+
+input EditWidgetInput {
+  id: ID
+  name: String
+  clientMutationId: String
+}
+
+type EditWidgetPayload {
+  widget: Widget
+  clientMutationId: String
+}
+
+type Mutations {
+  addWidget(input: AddWidgetInput!): AddWidgetPayload
+  deleteWidget(input: DeleteWidgetInput!): DeleteWidgetPayload
+  editWidget(input: EditWidgetInput!): EditWidgetPayload
+}
+
 interface Node {
   id: ID!
 }
