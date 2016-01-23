@@ -1,6 +1,6 @@
 Flask==0.10.1
-graphql-core==0.4.7b1
-graphql-epoxy==0.2a3
+graphql-core==0.4.12
+graphql-epoxy==0.3.2
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
