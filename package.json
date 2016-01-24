@@ -7,8 +7,8 @@
   "scripts": {
     "start": "npm run start-graphql & npm run start-node",
     "start-node": "babel-node ./server.js",
-    "update-schema": "source server/env/bin/activate && cd server && python scripts/update_schema.py",
-    "start-graphql": "source server/env/bin/activate && cd server && python app.py",
+    "update-schema": ". server/env/bin/activate && cd server && python scripts/update_schema.py",
+    "start-graphql": ". server/env/bin/activate && cd server && python app.py",
     "install-python-deps": "virtualenv -p python3.5 server/env && source server/env/bin/activate && pip install -r server/requirements.txt"
   },
   "dependencies": {
